@@ -9,7 +9,7 @@ runs:
   steps:
     - name: Install kube-score
       shell: bash
-      run: curl -sSL -o kube-score "https://github.com/zegl/kube-score/releases/download/v1.18.0/kube-score_1.18.0_linux_amd64"
+      run: curl -sSL -o kube-score "https://github.com/zegl/kube-score/releases/download/v1.20.0/kube-score_1.20.0_linux_amd64"
     - name: Run kube-score
       shell: bash
       run: |
