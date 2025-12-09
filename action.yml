@@ -4,6 +4,10 @@ inputs:
   manifests_path:
     description: "Path to the Kubernetes manifests for a dedicated environment"
     required: true
+  additional_flags:
+    description: "Additional flags added to kube-score executable. Default: --ignore-container-cpu-limit"
+    required: false
+    default: "--ignore-container-cpu-limit"
 runs:
   using: "composite"
   steps:
@@ -14,4 +18,4 @@ runs:
       shell: bash
       run: |
           chmod +x kube-score
-          kustomize build ${{ inputs.manifests_path }} --enable-helm | ./kube-score score --ignore-container-cpu-limit -
+          kustomize build ${{ inputs.manifests_path }} --enable-helm | ./kube-score score ${{ inputs.additional_flags }} -
